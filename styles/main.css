@@ -281,6 +281,13 @@ template {
     margin-right: 0
 }
 
+.secretlink {
+    color: #ddd;
+    text-decoration: none;
+    padding-bottom: 4px;
+    font-size: 1em;
+}
+
 .link {
     color: #ddd;
     text-decoration: none;
