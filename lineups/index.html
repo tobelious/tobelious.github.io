@@ -47,49 +47,35 @@
         }
     </style>
 </head>
+<!-- BUTTONS -->
 <body>
     <h1>Abyss</h1>
     <div class="button-group">
-        <button onclick="showImage('image1')">Brimstone Abyss 1</button>
-        <button onclick="showImage('image2')">Image 2</button>
-        <button onclick="showImage('image3')">Image 3</button>
-        <button onclick="showImage('image4')">Image 4</button>
-        <button onclick="showImage('image5')">Image 5</button>
-    </div>
-
-    <h1>Abyss</h1>
-    <div class="button-group">
-        <button onclick="showImage('image6')">Brimstone Sunset 1</button>
-        <button onclick="showImage('image7')">Image 2</button>
-        <button onclick="showImage('image8')">Image 3</button>
-        <button onclick="showImage('image9')">Image 4</button>
-        <button onclick="showImage('image10')">Image 5</button>
+        <button onclick="showImage('abyss_brim_1')">Brimstone Abyss 1</button>
     </div>
 
     <h1>Sunset</h1>
+    <div class="button-group">
+        <button onclick="showImage('sunset_brim_1')">Brimstone Sunset Default 1</button>
+        <button onclick="showImage('sunset_brim_2')">Brimstone Sunset Default 2</button>
+    </div>
+<!-- BUTTONS END -->
+<!-- IMAGE BANK -->
     <div class="image-container">
-        <div id="image1">
+        <div id="abyss_brim_1">
             <object data="assets/img/brim1.png" type="image/png"></object>
         </div>
-        <div id="image6">
+        <div id="sunset_brim_1">
             <object data="assets/img/brim2.png" type="image/png"></object>
         </div>
-        <div id="image3">
+        <div id="sunset_brim_2">
             <object data="assets/img/brim3.png" type="image/png"></object>
         </div>
-        <div id="image4">
-            <object data="assets/img/brim4.png" type="image/png"></object>
-        </div>
-        <div id="image5">
-            <object data="assets/img/brim5.png" type="image/png"></object>
-        </div>
     </div>
-
+<!-- IMAGE BANK END -->
     <script>
         function showImage(id) {
-            // Hide all images
             document.querySelectorAll('.image-container div').forEach(div => div.style.display = 'none');
-            // Show the selected image
             const selectedImage = document.getElementById(id);
             if (selectedImage) {
                 selectedImage.style.display = 'block';
