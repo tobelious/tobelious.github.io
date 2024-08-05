@@ -20,6 +20,7 @@
             border-radius: 12px; /* Rounded corners */
             background-color: #333;
             color: #e0e0e0;
+			font-weight: bold;
         }
         .image-container {
             margin-top: 20px;
@@ -51,22 +52,33 @@
             <option value="image5">Image 5</option>
         </select>
     </form>
+	
+	<form>
+        <select onchange="window.location.hash=this.value;">
+			<option value="none">None</option>
+            <option value="image1">Brimstone Abyss Postplant B</option>
+            <option value="image2">Image 2</option>
+            <option value="image3">Image 3</option>
+            <option value="image4">Image 4</option>
+            <option value="image5">Image 5</option>
+        </select>
+    </form>
 
     <div class="image-container">
         <div id="image1">
-            <object data="assets/img/ase.png" type="image/png"></object>
+            <object data="assets/img/brim1.png" type="image/png"></object>
         </div>
         <div id="image2">
-            <object data="image2.png" type="image/png"></object>
+            <object data="assets/img/brim2.png" type="image/png"></object>
         </div>
         <div id="image3">
-            <object data="image3.png" type="image/png"></object>
+            <object data="assets/img/brim3.png" type="image/png"></object>
         </div>
         <div id="image4">
-            <object data="image4.png" type="image/png"></object>
+            <object data="assets/img/brim4.png" type="image/png"></object>
         </div>
         <div id="image5">
-            <object data="image5.png" type="image/png"></object>
+            <object data="assets/img/brim5.png" type="image/png"></object>
         </div>
     </div>
 </body>
