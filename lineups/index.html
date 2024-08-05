@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/svg" href="assets/img/dumpster-fire-solid.svg">
-    <title>lineups</title>
+    <link rel="icon" type="image/svg+xml" href="assets/img/dumpster-fire-solid.svg">
+    <title>Lineups</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,14 +13,21 @@
             background-color: #1e1e1e; /* Dark background color */
             color: #e0e0e0; /* Light text color */
         }
-        select {
+        .button-group {
             margin-bottom: 20px;
-            padding: 10px;
+        }
+        .button-group button {
+            padding: 10px 20px;
             border: 1px solid #555;
             border-radius: 12px; /* Rounded corners */
             background-color: #333;
             color: #e0e0e0;
-			font-weight: bold;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .button-group button:hover {
+            background-color: #444;
         }
         .image-container {
             margin-top: 20px;
@@ -42,28 +49,24 @@
 </head>
 <body>
     <h1>Abyss</h1>
-    <form>
-        <select onchange="window.location.hash=this.value;">
-			<option value="none">None</option>
-            <option value="image1">Brimstone Abyss 1</option>
-            <option value="image2">Image 2</option>
-            <option value="image3">Image 3</option>
-            <option value="image4">Image 4</option>
-            <option value="image5">Image 5</option>
-        </select>
-    </form>
-    <h1>Abyss</h1>
-	<form>
-        <select onchange="window.location.hash=this.value;">
-			<option value="none">None</option>
-            <option value="image6">Brimstone Sunset 1</option>
-            <option value="image7">Image 2</option>
-            <option value="image8">Image 3</option>
-            <option value="image9">Image 4</option>
-            <option value="image10">Image 5</option>
-        </select>
-    </form>
+    <div class="button-group">
+        <button onclick="showImage('image1')">Brimstone Abyss 1</button>
+        <button onclick="showImage('image2')">Image 2</button>
+        <button onclick="showImage('image3')">Image 3</button>
+        <button onclick="showImage('image4')">Image 4</button>
+        <button onclick="showImage('image5')">Image 5</button>
+    </div>
 
+    <h1>Abyss</h1>
+    <div class="button-group">
+        <button onclick="showImage('image6')">Brimstone Sunset 1</button>
+        <button onclick="showImage('image7')">Image 2</button>
+        <button onclick="showImage('image8')">Image 3</button>
+        <button onclick="showImage('image9')">Image 4</button>
+        <button onclick="showImage('image10')">Image 5</button>
+    </div>
+
+    <h1>Sunset</h1>
     <div class="image-container">
         <div id="image1">
             <object data="assets/img/brim1.png" type="image/png"></object>
@@ -81,5 +84,17 @@
             <object data="assets/img/brim5.png" type="image/png"></object>
         </div>
     </div>
+
+    <script>
+        function showImage(id) {
+            // Hide all images
+            document.querySelectorAll('.image-container div').forEach(div => div.style.display = 'none');
+            // Show the selected image
+            const selectedImage = document.getElementById(id);
+            if (selectedImage) {
+                selectedImage.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
