@@ -1,46 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-		<meta property="og:title" content="TheMaster223">
-		<meta property="og:description" content="TheMaster223's Dumpster Fire">
-		<meta property="og:image" content="https://github.com/TheMaster223/images/blob/main/dumpster-fire-solid.png?raw=true">
-        <link rel="stylesheet" href="assets/styles/main.css">
-		<link rel="icon" type="image/svg" href="assets/img/dumpster-fire-solid.svg">
-        <title>TheMaster223</title>
-    </head>
-    <body>
-        <nav id="navbar">
-            <a class="link item active" href="/">
-                <span>About</span>
-            </a>
-            <a class="link item" href="https://www.youtube.com/@ItsTheMaster223">
-                <i class="fa-solid fa-code"></i>
-                <span>Youtube</span>
-            </a>
-        </nav>
-        <div id="wrapper">
-            <div class="page-content">
-                <div class="section-wrapper">
-                    <section class="intro">
-                        <h2>Brimstone</h2>
-                        <p>
-                            <span>
-                                  Just a person who likes doing random things.
-                            </span>
-						<hr>
-						<center>
-						<img src="assets/img/ase.png" alt="Brimstone Abyss 1">
-						</center>
-                    </section>
-                </div>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Dropdown without JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        select {
+            margin-bottom: 20px;
+        }
+        .image-container {
+            margin-top: 20px;
+        }
+        .image-container object {
+            max-width: 80%;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+        .image-container div {
+            display: none;
+        }
+        .image-container :target {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select an Image</h1>
+    <form>
+        <select onchange="window.location.hash=this.value;">
+            <option value="image1" selected>Image 1</option>
+            <option value="image2">Image 2</option>
+            <option value="image3">Image 3</option>
+            <option value="image4">Image 4</option>
+            <option value="image5">Image 5</option>
+        </select>
+    </form>
+
+    <div class="image-container">
+        <div id="image1">
+            <object data="assets/img/ase.png" type="image/png"></object>
         </div>
-        <footer>
-            <p>
-			Last Update: 5/28/24
-            </p>
-        </footer>
-    </body>
+        <div id="image2">
+            <object data="image2.png" type="image/png"></object>
+        </div>
+        <div id="image3">
+            <object data="image3.png" type="image/png"></object>
+        </div>
+        <div id="image4">
+            <object data="image4.png" type="image/png"></object>
+        </div>
+        <div id="image5">
+            <object data="image5.png" type="image/png"></object>
+        </div>
+    </div>
+</body>
 </html>
