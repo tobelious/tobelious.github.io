@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TheMaster223</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="" class="btn">Home</a></li>
+        <li><a href="/projects" class="btn">Projects</a></li>
+        <li><a href="https://www.youtube.com/@ItsTheMaster223" target="_blank" class="btn">YouTube</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="margin-top: 2rem;">
+    <h1>R6 Siege Sensitivity Calculator</h1>
+
+    <div class="card">
+      <label for="curr_hor">Current Horizontal Sensitivity</label>
+      <input type="number" id="curr_hor" step="0.01" min="0" value="1" />
+
+      <label for="curr_ver">Current Vertical Sensitivity</label>
+      <input type="number" id="curr_ver" step="0.01" min="0" value="1" />
+
+      <label for="curr_dpi">Current DPI</label>
+      <input type="number" id="curr_dpi" step="1" min="1" value="800" />
+
+      <label for="curr_mult">Current Multiplier</label>
+      <input type="number" id="curr_mult" step="0.01" min="0" value="1" />
+
+      <label for="new_dpi">New DPI</label>
+      <input type="number" id="new_dpi" step="1" min="1" value="800" />
+
+      <label for="new_mult">New Multiplier</label>
+      <input type="number" id="new_mult" step="0.01" min="0" value="1" />
+
+      <div class="result" id="result" style="margin-top:1rem; font-weight:600; font-size:1.2rem; color:#FFFFFF;">
+        New Horizontal Sensitivity: <strong>0</strong><br />
+        New Vertical Sensitivity: <strong>0</strong>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const currHor = document.getElementById('curr_hor');
+    const currVer = document.getElementById('curr_ver');
+    const currDpi = document.getElementById('curr_dpi');
+    const currMult = document.getElementById('curr_mult');
+    const newDpi = document.getElementById('new_dpi');
+    const newMult = document.getElementById('new_mult');
+    const resultDiv = document.getElementById('result');
+
+    function calculate() {
+      const ch = parseFloat(currHor.value) || 0;
+      const cv = parseFloat(currVer.value) || 0;
+      const cd = parseFloat(currDpi.value) || 1;
+      const cm = parseFloat(currMult.value) || 1;
+      const nd = parseFloat(newDpi.value) || 1;
+      const nm = parseFloat(newMult.value) || 1;
+
+      const factor = (cd * cm) / (nd * nm);
+      const newHor = ch * factor;
+      const newVer = cv * factor;
+
+      resultDiv.innerHTML = `
+        New Horizontal Sensitivity: <strong>${newHor.toFixed(4)}</strong><br />
+        New Vertical Sensitivity: <strong>${newVer.toFixed(4)}</strong>
+      `;
+    }
+
+    [currHor, currVer, currDpi, currMult, newDpi, newMult].forEach(input =>
+      input.addEventListener('input', calculate)
+    );
+
+    calculate();
+  </script>
+</body>
+</html>
